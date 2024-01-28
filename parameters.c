@@ -77,12 +77,12 @@ void parameters_print_help(void)
     fprintf(stderr,
         "cpuutil - print CPU utilization percentage over time\n"
         "\n"
-        "Example: cpuutil [-AChs]\n"
+        "Example: cpuutil [-ACh] [-s N]\n"
         "\n"
         "Parameters:\n"
         "-A\tdo not calculate and do not print average utilization\n"
         "-C\tdo not print current utilization\n"
         "-h\tprint this message and exit\n"
-        "-s\tsleep interval in seconds, default 1.0\n"
+        "-s N\tread interval in seconds, default 1.0\n"
     );
 }

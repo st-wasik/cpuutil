@@ -2,13 +2,13 @@
 ```
 cpuutil - print CPU utilization percentage over time
 
-Example: cpuutil [-AChs]
+Example: cpuutil [-ACh] [-s N]
 
 Parameters:
 -A      do not calculate and do not print average utilization
 -C      do not print current utilization
 -h      print this message and exit
--s      sleep interval in seconds, default 1.0
+-s N    read interval in seconds, default 1.0
 ```
 
 #### Example output
