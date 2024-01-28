@@ -36,20 +36,20 @@ void elapsed_timer_restart(elapsed_timer_t* elapsed_timer)
     clock_gettime(CLOCK_MONOTONIC, &elapsed_timer->start_time);
 }
 
-static struct timespec timespec_subtract(const struct timespec *left, const struct timespec *right) 
+static struct timespec timespec_subtract(const struct timespec *left, const struct timespec *right)
 {
     assert(left);
     assert(right);
 
-    struct timespec diff = 
-    { 
+    struct timespec diff =
+    {
         .tv_sec = left->tv_sec - right->tv_sec,
         .tv_nsec = left->tv_nsec - right->tv_nsec
     };
 
-    if (diff.tv_nsec < 0) 
+    if (diff.tv_nsec < 0)
     {
-        diff.tv_nsec += 1000000000; 
+        diff.tv_nsec += 1000000000;
         diff.tv_sec--;
     }
 

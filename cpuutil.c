@@ -18,7 +18,7 @@ int cpuutil_run(const parameters_t* parameters)
 
     cpustat_reader_t* reader = cpustat_reader_create();
     cpuutil_printer_t* printer = cpuutil_printer_create(parameters);
-    
+
     size_t cpustats_count = 0;
     cpustat_t* current_read = NULL;
     cpustat_t* last_read = NULL;
@@ -28,15 +28,15 @@ int cpuutil_run(const parameters_t* parameters)
     elapsed_timer_t* execution_timer = elapsed_timer_create();
 
     for(size_t read_number = 0; 1; read_number++)
-    {   
+    {
         if(cpustat_reader_read_cpustats(reader, &current_read, &cpustats_count) != 0)
         {
             return_code = 1;
             break;
         }
-        
+
         // first read returns average cpu utlization since system start, so skip it
-        if(read_number == 0) 
+        if(read_number == 0)
         {
             last_read = calloc(cpustats_count, sizeof(cpustat_t));
             assert(last_read);
@@ -46,7 +46,7 @@ int cpuutil_run(const parameters_t* parameters)
         else
         {
             state->is_utilization_invalid = 0;
-            
+
             for(int i = 0; i < cpustats_count; i++)
             {
                 cpustat_t stat;
@@ -67,7 +67,7 @@ int cpuutil_run(const parameters_t* parameters)
         state->step_number = read_number;
         state->execution_time_usec = elapsed_timer_get_elapsed_usec(execution_timer);
         cpuutil_printer_print(printer, state);
-        
+
         memcpy(last_read, current_read, sizeof(cpustat_t) * cpustats_count);
 
         expected_time_after_step += parameters->sleep_interval_usec;

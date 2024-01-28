@@ -13,7 +13,7 @@ Parameters:
 
 #### Example output
 ```
-   ALL   ALL   CPU00 CPU00   CPU01 CPU01   CPU02 CPU02   CPU03 CPU03  
+   ALL   ALL   CPU00 CPU00   CPU01 CPU01   CPU02 CPU02   CPU03 CPU03
   CURR   AVG    CURR   AVG    CURR   AVG    CURR   AVG    CURR   AVG         STEP       TIME
   38.2  38.2    48.5  48.5    14.3  14.3    35.6  35.6    26.7  26.7            1       1.00
   24.1  31.1    16.7  32.6    33.0  23.6    41.6  38.6    25.5  26.1            2       2.00

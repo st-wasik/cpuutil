@@ -46,7 +46,7 @@ int parameters_parse(parameters_t* parameters, int argc, char **argv)
                 fprintf(stderr, "Option -%c requires an argument.\n", optopt);
             else if(isprint(optopt))
                 fprintf(stderr, "Unknown option `-%c'.\n", optopt);
-            else 
+            else
                 fprintf(stderr, "Unknown option character `\\x%x'.\n", optopt);
             return 1;
         default:
@@ -74,7 +74,7 @@ int parameters_parse(parameters_t* parameters, int argc, char **argv)
 
 void parameters_print_help(void)
 {
-    fprintf(stderr, 
+    fprintf(stderr,
         "cpuutil - print CPU utilization percentage over time\n"
         "\n"
         "Example: cpuutil [-AChs]\n"

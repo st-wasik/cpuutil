@@ -33,8 +33,8 @@ void cpuutil_printer_print(cpuutil_printer_t* cpuutil_printer, const cpuutil_sta
     assert(cpuutil_printer);
     assert(cpuutil_state);
 
-    if(cpuutil_state->step_number == 0) 
-    {   
+    if(cpuutil_state->step_number == 0)
+    {
         if(cpuutil_printer->parameters->print_current_utilization)
             printf("   ALL");
 

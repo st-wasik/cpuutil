@@ -21,7 +21,7 @@ cpustat_reader_t* cpustat_reader_create(void)
 
     return cpustat_reader;
 }
-    
+
 static int cpustat_reader_close_file(cpustat_reader_t* cpustat_reader);
 
 void cpustat_reader_destroy(cpustat_reader_t* cpustat_reader)
@@ -37,12 +37,12 @@ static int cpustat_reader_close_file(cpustat_reader_t* cpustat_reader)
 
     if(cpustat_reader->file == NULL)
         return 0;
-    
+
     if(fclose(cpustat_reader->file) == EOF)
         return 1;
 
     cpustat_reader->file = NULL;
-    
+
     return 0;
 }
 
@@ -57,7 +57,7 @@ static int cpustat_reader_open_file(cpustat_reader_t* cpustat_reader)
 
     if(cpustat_reader->file == NULL)
         return 1;
-    
+
     return 0;
 }
 
@@ -67,17 +67,17 @@ static int cpustat_reader_read_cpustat_from_file(cpustat_reader_t* cpustat_reade
     assert(cpustat_reader->file);
     assert(cpustat);
 
-    return fscanf(cpustat_reader->file, "%8s %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu", 
-        cpustat->name, 
+    return fscanf(cpustat_reader->file, "%8s %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu",
+        cpustat->name,
         &cpustat->user,
-        &cpustat->nice, 
-        &cpustat->system, 
-        &cpustat->idle, 
-        &cpustat->iowait, 
-        &cpustat->irq, 
-        &cpustat->softirq, 
-        &cpustat->steal, 
-        &cpustat->guest, 
+        &cpustat->nice,
+        &cpustat->system,
+        &cpustat->idle,
+        &cpustat->iowait,
+        &cpustat->irq,
+        &cpustat->softirq,
+        &cpustat->steal,
+        &cpustat->guest,
         &cpustat->guest_nice
     );
 }
@@ -154,6 +154,6 @@ int cpustat_reader_read_cpustats(cpustat_reader_t* cpustat_reader, cpustat_t** c
 
     if(cpustat_reader_close_file(cpustat_reader) != 0)
         return 1;
-    
+
     return 0;
 }

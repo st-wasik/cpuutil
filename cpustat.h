@@ -2,7 +2,7 @@
 #define CPUSTAT_H
 #include <stdio.h>
 
-typedef struct  
+typedef struct
 {
     char name[8];
     unsigned long long user;
@@ -11,9 +11,9 @@ typedef struct
     unsigned long long idle;
     unsigned long long iowait;
     unsigned long long irq;
-    unsigned long long softirq; 
+    unsigned long long softirq;
     unsigned long long steal;
-    unsigned long long guest; 
+    unsigned long long guest;
     unsigned long long guest_nice;
 } cpustat_t;
 

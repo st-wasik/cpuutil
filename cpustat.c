@@ -13,7 +13,7 @@ void cpustat_subtract(cpustat_t* destination, const cpustat_t* left, const cpust
     destination->steal = left->steal - right->steal;
     destination->guest = left->guest - right->guest;
     destination->guest_nice = left->guest_nice - right->guest_nice;
-}       
+}
 
 double cpustat_calculate_utilization(const cpustat_t* cpustat)
 {
@@ -25,7 +25,7 @@ double cpustat_calculate_utilization(const cpustat_t* cpustat)
         + cpustat->irq
         + cpustat->softirq
         + cpustat->steal
-        + cpustat->guest 
+        + cpustat->guest
         + cpustat->guest_nice;
 
     if(total == 0)
