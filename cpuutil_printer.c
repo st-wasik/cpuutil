@@ -31,6 +31,7 @@ void cpuutil_printer_destroy(cpuutil_printer_t* cpuutil_printer)
 void cpuutil_printer_print(cpuutil_printer_t* cpuutil_printer, const cpuutil_state_t* cpuutil_state)
 {
     assert(cpuutil_printer);
+    assert(cpuutil_state);
 
     if(cpuutil_state->step_number == 0) 
     {   
