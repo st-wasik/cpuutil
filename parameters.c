@@ -5,12 +5,15 @@
 #include <getopt.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 #define SEC_TO_MICROSEC_FACTOR 1000000.0
 
 static void parameters_set_defaults(parameters_t* parameters)
 {
     assert(parameters);
+
+    memset(parameters, 0, sizeof(parameters));
 
     parameters->sleep_interval_usec = 1 * SEC_TO_MICROSEC_FACTOR;
     parameters->print_average_utilization = 1;
@@ -23,7 +26,7 @@ int parameters_parse(parameters_t* parameters, int argc, char **argv)
 
     parameters_set_defaults(parameters);
 
-    char c = 0;
+    int c = 0;
 
     while ((c = getopt (argc, argv, "AChs:")) != -1)
     {
